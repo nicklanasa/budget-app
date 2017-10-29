@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const http = require('http');
 const fetch = require('node-fetch');
+const moment = require('moment');
 
 const port = 3000;
 
@@ -33,7 +34,7 @@ app.get('/', function(req, res) {
   Promise.all([
     get(`http://localhost:${port}/v1/register`)
   ]).then((results) => {
-    res.render('index', {results});
+    res.render('index', {results, moment});
   }).catch(err => res.send(err.message));
 });
 

@@ -83,7 +83,7 @@
               <tbody>
                 <% for (var i=0; i < results[0].length; i++) { %>
                    <tr>
-                     <th scope="row"><%= results[0][i].date %></th>
+                     <th scope="row"><%= moment(results[0][i].date).format('MMM-DD-YYYY') %></th>
                      <td><%= results[0][i].payee %></td>
                      <td><%= results[0][i].postings[0].account %></td>
                      <td><%= results[0][i].postings[0].commodity.formatted %></td>
