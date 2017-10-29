@@ -26,7 +26,7 @@
               <div class="card bg-light mb-3">
                 <div class="card-body">
                   <h2 class="card-title">$0.00</h2>
-                  <p class="card-text text-muted">Starting Balance</p>
+                  <p class="card-text text-muted">Budgeted</p>
                 </div>
               </div>
               <div class="card bg-light mb-3">
@@ -44,7 +44,7 @@
               <div class="card bg-light mb-3">
                 <div class="card-body">
                   <h2 class="card-title">$0.00</h2>
-                  <p class="card-text text-muted">Ending Balance</p>
+                  <p class="card-text text-muted">To Be Budgeted</p>
                 </div>
               </div>
             </div>
@@ -52,7 +52,7 @@
           <div class="col-md">
             <div class="btn-group">
               <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Week
+                Month
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Week</a>
@@ -60,7 +60,7 @@
                 <a class="dropdown-item" href="#">Year</a>
               </div>
             </div>
-            <h2>Oct 20-27</h2>
+            <h2>October</h2>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-outline-primary">Previous</button>
               <button type="button" class="btn btn-outline-primary">Next</button>
@@ -70,26 +70,69 @@
         <div class="row pt-4">
           <div class="col-md-12">
             <div class="d-flex justify-content-end pb-3">.
-              <button type="button" class="btn btn-outline-primary ">Upload .csv</button>
+              <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newBudgetModal"><i class="fa fa-plus" aria-hidden="true"></i></i> New Budget Item</button>
             </div>
-            <table class="table table-hover">
+            <!-- Modal -->
+            <div class="modal fade" id="newBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5>Add new budget item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="input-group input-group-lg pb-2">
+                      <input type="text" class="form-control" placeholder="New Budget Item" aria-label="new budget item">
+                    </div>
+                    <div class="input-group input-group-lg">
+                      <input type="text" class="form-control" placeholder="Budget amount" aria-label="budget amount">
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Add Item</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                        <table class="table table-hover">
               <thead>
                 <tr>
-                  <th style="padding-left: 0px;" scope="col">Date</th>
-                  <th style="padding-left: 0px;" scope="col">Payee</th>
-                  <th scope="col">Category</th>
-                  <th scope="col">Amount</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Budget</th>
+                  <th scope="col">Spent</th>
+                  <th scope="col">Left</th>
                 </tr>
               </thead>
               <tbody>
-                <% for (var i=0; i < results[0].length; i++) { %>
-                   <tr>
-                     <th scope="row"><%= moment(results[0][i].date).format('MMM-DD-YYYY') %></th>
-                     <td><%= results[0][i].payee %></td>
-                     <td><%= results[0][i].postings[0].account %></td>
-                     <td><%= results[0][i].postings[0].commodity.formatted %></td>
-                   </tr>
-                <% } %>
+                <tr>
+                  <th scope="row">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Bills" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                  </th>
+                  <td>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="$1200.00" aria-label="Amount (to the nearest dollar)">
+                    </div>
+                  </td>
+                  <td>$800.00</td>
+                  <td>$400.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Food</th>
+                  <td>$700.00</td>
+                  <td>$900.00</td>
+                  <td>-$200.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">Debt</th>
+                  <td>$1000.00</td>
+                  <td>$900.00</td>
+                  <td>$100.00</td>
+                </tr>
               </tbody>
             </table>
           </div>

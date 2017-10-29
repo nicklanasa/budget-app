@@ -38,6 +38,11 @@ app.get('/', function(req, res) {
   }).catch(err => res.send(err.message));
 });
 
+app.get('/budget', function(req, res) {
+  res.render('budget');
+});
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
