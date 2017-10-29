@@ -81,24 +81,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">10/20</th>
-                  <td>Allie's Donuts</td>
-                  <td>Food</td>
-                  <td>$40.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">10/22</th>
-                  <td>National Grid</td>
-                  <td>Bills</td>
-                  <td>$200.00</td>
-                </tr>
-                <tr>
-                  <th scope="row">10/23</th>
-                  <td>Stop & Shop</td>
-                  <td>Food</td>
-                  <td>$100.00</td>
-                </tr>
+                <% for (var i=0; i < results[0].length; i++) { %>
+                   <tr>
+                     <th scope="row"><%= results[0][i].date %></th>
+                     <td><%= results[0][i].payee %></td>
+                     <td><%= results[0][i].postings[0].account %></td>
+                     <td><%= results[0][i].postings[0].commodity.formatted %></td>
+                   </tr>
+                <% } %>
               </tbody>
             </table>
           </div>
