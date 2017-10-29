@@ -1,0 +1,5 @@
+# Register endpoint
+GET http://127.0.0.1:3000/v1/register?account=Expenses:Baby
+
+# Balance endpoint
+GET http://127.0.0.1:3000/v1/balance

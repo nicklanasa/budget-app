@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row pt-4">
+          <div class="col-md-2">
+            <div class="dropdown d-flex justify-content-end">
+              <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Balance</a>
+                <a class="dropdown-item" href="#">Budget</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="card-group">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h2 class="card-title">$0.00</h2>
+                  <p class="card-text text-muted">Starting Balance</p>
+                </div>
+              </div>
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h2 class="card-title text-danger">$0.00</h2>
+                  <p class="card-text text-muted">Outgoing</p>
+                </div>
+              </div>
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h2 class="card-title text-success">$0.00</h2>
+                  <p class="card-text text-muted">Incoming</p>
+                </div>
+              </div>
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h2 class="card-title">$0.00</h2>
+                  <p class="card-text text-muted">Ending Balance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="btn-group">
+              <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Week
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Week</a>
+                <a class="dropdown-item" href="#">Month</a>
+                <a class="dropdown-item" href="#">Year</a>
+              </div>
+            </div>
+            <h2>Oct 20-27</h2>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn btn-outline-primary">Previous</button>
+              <button type="button" class="btn btn-outline-primary">Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-4">
+          <div class="col-md-12">
+            <div class="d-flex justify-content-end pb-3">.
+              <button type="button" class="btn btn-outline-primary ">Upload .csv</button>
+            </div>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th style="padding-left: 0px;" scope="col">Date</th>
+                  <th style="padding-left: 0px;" scope="col">Payee</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">10/20</th>
+                  <td>Allie's Donuts</td>
+                  <td>Food</td>
+                  <td>$40.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">10/22</th>
+                  <td>National Grid</td>
+                  <td>Bills</td>
+                  <td>$200.00</td>
+                </tr>
+                <tr>
+                  <th scope="row">10/23</th>
+                  <td>Stop & Shop</td>
+                  <td>Food</td>
+                  <td>$100.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
