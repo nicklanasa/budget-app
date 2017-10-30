@@ -82,6 +82,8 @@ app.get('/', function(req, res) {
     let starting = results.length > 0 ? parseFloat(results[0].payee.split(';')[1]) : 0.0;
     let ending = (starting + (-1 * outgoing) + incoming).toFixed(2);
 
+    outgoing = outgoing.toFixed(2);
+
     res.render('index', {results, moment, startDate, endDate, req, outgoing, incoming, starting, ending});
   }).catch(err => res.send(err.message));
 });
