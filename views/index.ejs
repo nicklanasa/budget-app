@@ -57,22 +57,22 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/"><%= req.query.dateFilter %></a>
                 <% if(req.query.dateFilter === 'Month') { %>
-                <a class="dropdown-item" href="/?dateFilter=Year">
+                <a class="dropdown-item" href="/?dateFilter=Year&currentDate=<%= req.query.currentDate.toString() %>">
                   Year
                 </a>
-                <a class="dropdown-item" href="?dateFilter=Week">Week</a>
+                <a class="dropdown-item" href="?dateFilter=Week&currentDate=<%= req.query.currentDate.toString() %>">Week</a>
                 <% } %>
                 <% if(req.query.dateFilter === 'Year') { %>
-                <a class="dropdown-item" href="/?dateFilter=Week">
+                <a class="dropdown-item" href="/?dateFilter=Week&currentDate=<%= req.query.currentDate.toString() %>">
                   Week
                 </a>
                 <a class="dropdown-item" href="?dateFilter=Month">Month</a>
                 <% } %>
                 <% if(req.query.dateFilter === 'Week') { %>
-                <a class="dropdown-item" href="/?dateFilter=Month">
+                <a class="dropdown-item" href="/?dateFilter=Month&currentDate=<%= req.query.currentDate.toString() %>">
                   Month
                 </a>
-                <a class="dropdown-item" href="?dateFilter=Year">Year</a>
+                <a class="dropdown-item" href="?dateFilter=Year&currentDate=<%= req.query.currentDate.toString() %>">Year</a>
                 <% } %>
               </div>
             </div>
