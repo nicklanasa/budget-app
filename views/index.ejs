@@ -52,18 +52,34 @@
           <div class="col-md">
             <div class="btn-group">
               <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Week
+                <%= req.query.dateFilter %>
               </button>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Week</a>
-                <a class="dropdown-item" href="#">Month</a>
-                <a class="dropdown-item" href="#">Year</a>
+                <a class="dropdown-item" href="/"><%= req.query.dateFilter %></a>
+                <% if(req.query.dateFilter === 'Month') { %>
+                <a class="dropdown-item" href="/?dateFilter=Year">
+                  Year
+                </a>
+                <a class="dropdown-item" href="?dateFilter=Week">Week</a>
+                <% } %>
+                <% if(req.query.dateFilter === 'Year') { %>
+                <a class="dropdown-item" href="/?dateFilter=Week">
+                  Week
+                </a>
+                <a class="dropdown-item" href="?dateFilter=Month">Month</a>
+                <% } %>
+                <% if(req.query.dateFilter === 'Week') { %>
+                <a class="dropdown-item" href="/?dateFilter=Month">
+                  Month
+                </a>
+                <a class="dropdown-item" href="?dateFilter=Year">Year</a>
+                <% } %>
               </div>
             </div>
-            <h2>Oct 20-27</h2>
+            <h2><%= moment(startDate).format('MMM/DD/YYYY') %> - <%= moment(endDate).format('MMM/DD/YYYY') %></h2>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button type="button" class="btn btn-outline-primary">Previous</button>
-              <button type="button" class="btn btn-outline-primary">Next</button>
+              <button type="button" class="btn btn-outline-primary" onclick="javascript:window.location='/?previous=true&currentDate=<%= req.query.currentDate.toString() %>&dateFilter=<%= req.query.dateFilter %>'">Previous</button>
+              <button type="button" class="btn btn-outline-primary" onclick="javascript:window.location='/?next=true&currentDate=<%= req.query.currentDate.toString() %>&dateFilter=<%= req.query.dateFilter %>'">Next</button>
             </div>
           </div>
         </div>
@@ -82,12 +98,12 @@
                 </tr>
               </thead>
               <tbody>
-                <% for (var i=0; i < results[0].length; i++) { %>
+                <% for (var i=0; i < results.length; i++) { %>
                    <tr>
-                     <th scope="row"><%= moment(results[0][i].date).format('MMM-DD-YYYY') %></th>
-                     <td><%= results[0][i].payee %></td>
-                     <td><%= results[0][i].postings[0].account %></td>
-                     <td><%= results[0][i].postings[0].commodity.formatted %></td>
+                     <th scope="row"><%= moment(results[i].date).format('MMM-DD-YYYY') %></th>
+                     <td><%= results[i].payee %></td>
+                     <td><%= results[i].postings[0].account %></td>
+                     <td><%= results[i].postings[0].commodity.formatted %></td>
                    </tr>
                 <% } %>
               </tbody>

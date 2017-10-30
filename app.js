@@ -34,7 +34,45 @@ app.get('/', function(req, res) {
   Promise.all([
     get(`http://localhost:${port}/v1/register`)
   ]).then((results) => {
-    res.render('index', {results, moment});
+    let currentDate = req.query.currentDate ? moment(req.query.currentDate) : moment();
+
+    let startDate = undefined;
+    let endDate = undefined;
+
+    if (req.query.dateFilter === 'Month') { // Month
+      if (req.query.next) {
+        currentDate = currentDate.add(1, 'M');
+      } else if (req.query.previous) {
+        currentDate = currentDate.add(-1, 'M');
+      }
+      startDate = currentDate.startOf('month').toDate();
+      endDate = currentDate.endOf('month').toDate();
+    } else if (req.query.dateFilter === 'Year') { // Year
+      if (req.query.next) {
+        currentDate = currentDate.add(1, 'y');
+      } else if (req.query.previous) {
+        currentDate = currentDate.add(-1, 'y');
+      }
+      startDate = currentDate.startOf('year').toDate();
+      endDate = currentDate.endOf('year').toDate();
+    } else {
+      if (req.query.next) {
+        currentDate = currentDate.add(1, 'w');
+      } else if (req.query.previous) {
+        currentDate = currentDate.add(-1, 'w');
+      }
+      startDate = currentDate.startOf('week').toDate();
+      endDate = currentDate.endOf('week').toDate();
+      req.query.dateFilter = 'Week';
+    }
+
+    req.query.currentDate = currentDate;
+
+    results = results[0].filter((row) => {
+      return moment(row.date) >= startDate && moment(row.date) <= endDate;
+    });
+
+    res.render('index', {results, moment, startDate, endDate, req});
   }).catch(err => res.send(err.message));
 });
 
