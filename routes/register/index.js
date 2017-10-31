@@ -1,5 +1,3 @@
-const Ledger = require('ledger-cli').Ledger;
-const ledger = new Ledger ({ file: '../transactions/2017.dat' });
 const JSONStream = require('JSONStream');
 const moment = require('moment');
 const get = require('../../utils/get');

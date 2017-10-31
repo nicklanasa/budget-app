@@ -1,5 +1,5 @@
 const Ledger = require('ledger-cli').Ledger;
-const ledger = new Ledger ({ file: 'transactions/2017.dat' })
+const ledger = new Ledger({ file: 'transactions/2017.dat' })
 const JSONStream = require('JSONStream');
 
 module.exports = (req, res) => {
