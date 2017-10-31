@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/', require('./register/index'));
+router.get(`/register/`, require('./getRegister'));
 
 module.exports = router;

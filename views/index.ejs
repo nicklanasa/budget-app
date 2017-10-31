@@ -77,7 +77,7 @@
                 <% } %>
               </div>
             </div>
-            <h2><%= moment(startDate).format('MMM/DD/YYYY') %> - <%= moment(endDate).format('MMM/DD/YYYY') %></h2>
+            <h2><%= moment(startDate).format('MM/DD/YYYY') %> - <%= moment(endDate).format('MMM/DD/YYYY') %></h2>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button type="button" class="btn btn-outline-primary" onclick="javascript:window.location='/?previous=true&currentDate=<%= req.query.currentDate.toString() %>&dateFilter=<%= req.query.dateFilter %>'">Previous</button>
               <button type="button" class="btn btn-outline-primary" onclick="javascript:window.location='/?next=true&currentDate=<%= req.query.currentDate.toString() %>&dateFilter=<%= req.query.dateFilter %>'">Next</button>
@@ -101,7 +101,7 @@
               <tbody>
                 <% for (var i=0; i < results.length; i++) { %>
                    <tr>
-                     <th scope="row"><%= moment(results[i].date).format('MMM-DD-YYYY') %></th>
+                     <th scope="row"><%= moment(results[i].date).format('MM-DD-YYYY') %></th>
                      <td><%= results[i].payee %></td>
                      <td><%= results[i].postings[0].account %></td>
                      <td><%= results[i].postings[0].commodity.formatted %></td>
