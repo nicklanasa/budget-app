@@ -7,6 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/0171957e2b.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
   </head>
   <body>
     <div class="container-fluid">
@@ -71,9 +72,9 @@
         <div class="row pt-4">
           <div class="col-md-12">
             <div class="d-flex justify-content-end pb-3">.
-              <button type="button" class="btn btn-danger"><i class="fa fa-times-circle-o" aria-hidden="true"></i>
+              <button type="button" class="btn btn-danger mr-2 d-none"><i class="fa fa-times" aria-hidden="true"></i>
                 Delete Budget Item</button>
-              <button type="button" class="btn btn-success">Submit</button>
+              <button type="button" class="btn btn-success mr-2 d-none">Submit</button>
               <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newBudgetModal"><i class="fa fa-plus" aria-hidden="true"></i></i> New Budget Item</button>
             </div>
             <!-- Modal -->
@@ -114,7 +115,7 @@
                 <tr>
                   <th scope="row">
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Bills" aria-label="Amount (to the nearest dollar)">
+                      <input type="text" class="form-control" placeholder="Bills" aria-label="description">
                     </div>
                   </th>
                   <td>
@@ -126,14 +127,22 @@
                   <td>$400.00</td>
                 </tr>
                 <tr>
-                  <th scope="row">Food</th>
-                  <td>$700.00</td>
+                  <th scope="row"><div class="input-group">
+                    <input type="text" class="form-control" placeholder="Food" aria-label="description">
+                  </div></th>
+                  <td><div class="input-group">
+                    <input type="text" class="form-control" placeholder="$700.00" aria-label="Amount (to the nearest dollar)">
+                  </div></td>
                   <td>$900.00</td>
                   <td>-$200.00</td>
                 </tr>
                 <tr>
-                  <th scope="row">Debt</th>
-                  <td>$1000.00</td>
+                  <th scope="row"><div class="input-group">
+                    <input type="text" class="form-control" placeholder="Debt" aria-label="description">
+                  </div></th>
+                  <td><div class="input-group">
+                    <input type="text" class="form-control" placeholder="$1000.00" aria-label="Amount (to the nearest dollar)">
+                  </div></td>
                   <td>$900.00</td>
                   <td>$100.00</td>
                 </tr>
