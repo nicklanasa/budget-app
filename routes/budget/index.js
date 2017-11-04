@@ -25,8 +25,14 @@ module.exports = (req, res) => {
       for (var i=0; i < budget.length; i++) {
         if (budget[i].description === account) {
           budget[i].spent = (parseFloat(budget[i].spent) + parseFloat(amount)).toFixed(2);
-          budget[i].left = (parseFloat(budget[i].budget.slice(1)) - parseFloat(budget[i].spent)).toFixed(2);
-          break;
+        }
+
+        budget[i].left = (parseFloat(budget[i].budget.slice(1)) - parseFloat(budget[i].spent)).toFixed(2);
+
+        if (parseFloat(budget[i].left) < 0) {
+          budget[i].color = 'red';
+        } else {
+          budget[i].color = 'green';
         }
       }
     });
