@@ -14,14 +14,23 @@ module.exports = (req, res) => {
     results.splice(0, 1);
 
     let budget = [];
+    let salary = 0;
+    let budgeted = 0;
     results.map((item) => {
       let budgetData = item.split('  ');
-      budget.push({description: budgetData[1].split(':')[1],
-                   budget: budgetData[2],
-                   spent: 0,
-                   left: 0});
+      let description = budgetData[1].split(':')[1];
+
+      if (description === 'Salary') {
+        salary = parseFloat(budgetData[2].slice(1));
+      } else {
+        budget.push({description: description,
+                     budget: budgetData[2],
+                     spent: 0,
+                     left: 0});
+        budgeted += parseFloat(budgetData[2].slice(1));
+      }
     });
 
-    res.status(200).send(budget);
+    res.status(200).send({budget, salary, budgeted});
   });
 }

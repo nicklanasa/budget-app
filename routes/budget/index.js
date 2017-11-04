@@ -15,8 +15,11 @@ module.exports = (req, res) => {
     const transactions = results[1].filter((row) => {
       return moment(row.date) >= startDate && moment(row.date) <= endDate;
     });
+    const budget = results[0].budget;
 
-    const budget = results[0];
+    let budgeted = 0;
+    let outgoing = 0;
+    let incoming = 0;
 
     transactions.map((transaction) => {
       const account = transaction.postings[0].account.split(':')[1];
@@ -35,8 +38,15 @@ module.exports = (req, res) => {
           budget[i].color = 'green';
         }
       }
+
+      outgoing += transaction.postings[0].account.split(':')[0] === 'Expenses' || transaction.postings[0].account.split(':')[0] === 'Liabilities' ? transaction.postings[0].commodity.amount : 0.0 ;
     });
 
-    res.render('budget', {budget});
+    budgeted = results[0].budgeted.toFixed(2)
+    outgoing = outgoing.toFixed(2);
+    incoming = results[0].salary.toFixed(2);
+    let toBeBudgeted = (results[0].salary - budgeted).toFixed(2);
+
+    res.render('budget', {budget, budgeted, outgoing, incoming, toBeBudgeted});
   });
 };
