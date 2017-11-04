@@ -111,20 +111,20 @@ x  </head>
                 </tr>
               </thead>
               <tbody>
-                <% for (var i=0; i < results.length; i++) { %>
+                <% for (var i=0; i < budget.length; i++) { %>
                    <tr>
                      <th scope="row">
                        <div class="input-group">
-                         <input type="text" class="form-control" placeholder="Bills" aria-label="description" value="<%= results[i].description %>">
+                         <input type="text" class="form-control" placeholder="Bills" aria-label="description" value="<%= budget[i].description %>">
                        </div>
                      </th>
                      <td>
                        <div class="input-group">
-                         <input type="text" class="form-control" placeholder="$1200.00" aria-label="Amount (to the nearest dollar)" value="<%= results[i].budget %>">
+                         <input type="text" class="form-control" placeholder="$1200.00" aria-label="Amount (to the nearest dollar)" value="<%= budget[i].budget %>">
                        </div>
                      </td>
-                     <td>$800.00</td>
-                     <td>$400.00</td>
+                     <td>$<%= budget[i].spent %></td>
+                     <td>$<%= budget[i].left %></td>
                    </tr>
                  <% } %>
               </tbody>

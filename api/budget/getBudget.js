@@ -17,7 +17,9 @@ module.exports = (req, res) => {
     results.map((item) => {
       let budgetData = item.split('  ');
       budget.push({description: budgetData[1].split(':')[1],
-                   budget: budgetData[2]});
+                   budget: budgetData[2],
+                   spent: 0,
+                   left: 0});
     });
 
     res.status(200).send(budget);
