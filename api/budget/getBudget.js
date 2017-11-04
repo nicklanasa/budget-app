@@ -16,10 +16,10 @@ module.exports = (req, res) => {
     let budget = [];
     results.map((item) => {
       let budgetData = item.split('  ');
-      budget.push({description: budgetData[0],
-                     budget: budgetData[1]});
+      budget.push({description: budgetData[1].split(':')[1],
+                   budget: budgetData[2]});
     });
 
-    res.status(200).send({budget});
+    res.status(200).send(budget);
   });
 }

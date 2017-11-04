@@ -7,8 +7,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/0171957e2b.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="public/stylesheets/style.css">
-  </head>
+x  </head>
   <body>
     <div class="container-fluid">
       <div class="row pt-4">
@@ -112,40 +111,22 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="Bills" aria-label="description">
-                    </div>
-                  </th>
-                  <td>
-                    <div class="input-group">
-                      <input type="text" class="form-control" placeholder="$1200.00" aria-label="Amount (to the nearest dollar)">
-                    </div>
-                  </td>
-                  <td>$800.00</td>
-                  <td>$400.00</td>
-                </tr>
-                <tr>
-                  <th scope="row"><div class="input-group">
-                    <input type="text" class="form-control" placeholder="Food" aria-label="description">
-                  </div></th>
-                  <td><div class="input-group">
-                    <input type="text" class="form-control" placeholder="$700.00" aria-label="Amount (to the nearest dollar)">
-                  </div></td>
-                  <td>$900.00</td>
-                  <td>-$200.00</td>
-                </tr>
-                <tr>
-                  <th scope="row"><div class="input-group">
-                    <input type="text" class="form-control" placeholder="Debt" aria-label="description">
-                  </div></th>
-                  <td><div class="input-group">
-                    <input type="text" class="form-control" placeholder="$1000.00" aria-label="Amount (to the nearest dollar)">
-                  </div></td>
-                  <td>$900.00</td>
-                  <td>$100.00</td>
-                </tr>
+                <% for (var i=0; i < results.length; i++) { %>
+                   <tr>
+                     <th scope="row">
+                       <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Bills" aria-label="description" value="<%= results[i].description %>">
+                       </div>
+                     </th>
+                     <td>
+                       <div class="input-group">
+                         <input type="text" class="form-control" placeholder="$1200.00" aria-label="Amount (to the nearest dollar)" value="<%= results[i].budget %>">
+                       </div>
+                     </td>
+                     <td>$800.00</td>
+                     <td>$400.00</td>
+                   </tr>
+                 <% } %>
               </tbody>
             </table>
           </div>
