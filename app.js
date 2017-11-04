@@ -5,19 +5,21 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const http = require('http');
+const fileUpload = require('express-fileupload');
 const port = 3000;
 
 const app = express();
-app.use(require('./api/'));
-app.use(require('./routes/'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/budget', function(req, res) {
-  res.render('budget');
-});
+app.use(fileUpload());
+
+app.use(require('./api/'));
+
+app.get('/', require('./routes/register/index'));
+app.get('/budget', require('./routes/budget/index'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

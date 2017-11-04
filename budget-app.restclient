@@ -3,3 +3,9 @@ GET http://127.0.0.1:3000/v1/register
 
 # Balance endpoint
 GET http://127.0.0.1:3000/v1/balance
+
+# Learn endpoint
+POST http://127.0.0.1:3000/v1/learn
+Content-type: text/plain
+
+< /etc/passwd
