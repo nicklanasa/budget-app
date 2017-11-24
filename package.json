@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "migrate": "knex migrate:latest"
   },
   "dependencies": {
     "JSONStream": "^1.3.1",
     "body-parser": "~1.18.2",
+    "bookshelf": "^0.11.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
@@ -15,10 +17,13 @@
     "express-fileupload": "^0.3.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
+    "knex": "^0.14.1",
     "ledger-cli": "^0.2.0",
     "moment": "^2.19.1",
     "morgan": "~1.9.0",
+    "mysql": "^2.15.0",
     "node-fetch": "^1.7.3",
+    "pg": "^7.4.0",
     "serve-favicon": "~2.4.5"
   },
   "engine": {
@@ -27,6 +32,11 @@
   },
   "main": "app.js",
   "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
     "nodemon": "^1.12.1"
   }
 }
